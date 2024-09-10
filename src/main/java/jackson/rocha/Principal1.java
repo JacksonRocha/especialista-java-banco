@@ -9,7 +9,6 @@ public class Principal1 {
         conta1.setTitular(new Titular("Jackson", "01422222160"));
         conta1.setAgencia(1234);
         conta1.setNumero(999999);
-        conta1.setTipo(Conta.NORMAL);
 
         conta1.imprimirDemonstrativo();
 
