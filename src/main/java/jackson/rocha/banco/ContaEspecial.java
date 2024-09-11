@@ -25,6 +25,7 @@ public class ContaEspecial extends ContaInvestimento {
         return getSaldo() + getLimiteChequeEspecial();
     }
 
+    @Override
     public void imprimirDemonstrativo() {
         super.imprimirDemonstrativo();
         System.out.printf("Saldo disponível: %.2f%n", getSaldoDisponivel());
