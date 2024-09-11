@@ -5,7 +5,7 @@ public class Conta {
     private Titular titular;
     private int agencia;
     private int numero;
-    private double saldo;
+    protected double saldo;
 
     public Titular getTitular() {
         return titular;
@@ -35,13 +35,22 @@ public class Conta {
         return saldo;
     }
 
+    protected void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    protected void validarSaldoParaSaque(double valorSaque) {
+        if (getSaldo() < valorSaque) {
+            throw new RuntimeException("Saldo insuficiente para saque");
+        }
+    }
+
     public void sacar(double valorSaque) {
         if (valorSaque <= 0) {
             throw new IllegalArgumentException("Valor do saque deve ser maior que zero");
         }
-        if (getSaldo() < valorSaque) {
-            throw new RuntimeException("Saldo insuficiente para saque");
-        }
+        validarSaldoParaSaque(valorSaque);
+
         saldo -= valorSaque;
     }
 
