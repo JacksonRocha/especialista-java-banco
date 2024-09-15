@@ -7,6 +7,10 @@ public class Conta {
     private int numero;
     protected double saldo;
 
+    public Conta() {
+
+    }
+
     public Titular getTitular() {
         return titular;
     }
