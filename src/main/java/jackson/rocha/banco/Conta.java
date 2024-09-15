@@ -1,5 +1,7 @@
 package jackson.rocha.banco;
 
+import java.util.Objects;
+
 public class Conta {
 
     private Titular titular;
@@ -69,15 +71,15 @@ public class Conta {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null) return false;
-        if (this.getClass() != obj.getClass()) return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Conta conta = (Conta) o;
+        return agencia == conta.agencia && numero == conta.numero;
+    }
 
-        Conta conta = (Conta) obj;
-        if (this.agencia != conta.agencia) return false;
-        if (this.numero != conta.numero) return false;
-        return true;
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(agencia, numero);
     }
 }
