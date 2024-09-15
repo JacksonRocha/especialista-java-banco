@@ -5,8 +5,9 @@ public class ContaEspecial extends ContaInvestimento {
     private double tarifaMensal;
     private double limiteChequeEspecial;
 
-    public ContaEspecial() {
-        super();
+    public ContaEspecial(Titular titular, int agencia, int numero, double tarifaMensal) {
+        super(titular, agencia, numero);
+        this.tarifaMensal = tarifaMensal;
     }
 
     public double getTarifaMensal() {
