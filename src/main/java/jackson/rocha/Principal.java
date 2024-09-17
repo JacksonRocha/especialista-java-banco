@@ -15,7 +15,7 @@ public class Principal {
         conta2.creditarRendimento(10);
 
         ContaSalario conta3 = new ContaSalario(new Titular("Jackson", "01422222160"), 1234, 999999, 18.000);
-        conta2.depositar(100);
+        conta3.depositar(100);
 
         caixaEletronico.imprimirDemonstrativo(conta3);
 
