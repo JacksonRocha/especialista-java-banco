@@ -1,8 +1,6 @@
 package jackson.rocha;
 
-import jackson.rocha.banco.CaixaEletronico;
-import jackson.rocha.banco.ContaEspecial;
-import jackson.rocha.banco.Titular;
+import jackson.rocha.banco.*;
 
 public class Principal {
 
@@ -10,15 +8,16 @@ public class Principal {
         CaixaEletronico caixaEletronico = new CaixaEletronico();
 
         ContaEspecial conta1 = new ContaEspecial(new Titular("Jackson", "01422222160"), 1234, 999999, 90);
-        conta1.setLimiteChequeEspecial(100);
+        conta1.setLimiteChequeEspecial(1000);
 
-        ContaEspecial conta2 = new ContaEspecial(new Titular("Helen", "12309898567"), 2222, 888888888, 90);
+        ContaInvestimento conta2 = new ContaInvestimento(new Titular("Jackson", "01422222160"), 1234, 999999);
+        conta2.depositar(100);
+        conta2.creditarRendimento(10);
 
+        ContaSalario conta3 = new ContaSalario(new Titular("Jackson", "01422222160"), 1234, 999999, 18.000);
+        conta2.depositar(100);
 
-        conta1.depositar(300);
+        caixaEletronico.imprimirDemonstrativo(conta3);
 
-        caixaEletronico.transferir(conta1, conta2, 50);
-        conta1.imprimirDemonstrativo();
-        conta2.imprimirDemonstrativo();
     }
 }
